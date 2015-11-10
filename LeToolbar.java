@@ -37,8 +37,6 @@ public class LeToolbar extends Toolbar {
 
             Field mTitleTextView = Toolbar.class.getDeclaredField("mTitleTextView");
             mTitleTextView.setAccessible(true);
-            String s = mTitleTextView.getType().getCanonicalName();
-            System.out.print("----" + s);
 
 
             Method setLayoutParams = View.class.getDeclaredMethod("setLayoutParams", ViewGroup.LayoutParams.class);
@@ -67,20 +65,7 @@ public class LeToolbar extends Toolbar {
 
     }
 
-    private void addSystemView(View v, boolean b) {
-        try {
-            Method addSV = LeToolbar.class.getMethod("addSystemView");
-            addSV.setAccessible(true);
-            // invoke(this,addSV,new Object[]{v,b});
-            addSV.invoke(this, new Object[]{v, b});
 
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
-
-    }
 
 
 }
